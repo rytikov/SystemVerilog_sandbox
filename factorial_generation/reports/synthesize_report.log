@@ -1,0 +1,557 @@
+# Analyze and elaborate:
+define_design_lib WORK  -path ./WORK
+1
+analyze -f sverilog package.sv
+Running PRESTO HDLC
+Searching for ./package.sv
+Compiling source file ./package.sv
+Presto compilation completed successfully.
+Loading db file '/home/sa62076/virage/liberty/2001.08/ts90ngksdsc_tt.db'
+Loading db file '/synopsys/2010fall/syn/libraries/syn/dw_foundation.sldb'
+1
+analyze -f sverilog engine.sv
+Running PRESTO HDLC
+Searching for ./engine.sv
+Compiling source file ./engine.sv
+Presto compilation completed successfully.
+1
+analyze -f sverilog engine_pgm.sv
+Running PRESTO HDLC
+Searching for ./engine_pgm.sv
+Compiling source file ./engine_pgm.sv
+Presto compilation completed successfully.
+1
+analyze -f sverilog factorial.sv
+Running PRESTO HDLC
+Searching for ./factorial.sv
+Compiling source file ./factorial.sv
+Presto compilation completed successfully.
+1
+analyze -f sverilog tb_interface.sv
+Running PRESTO HDLC
+Searching for ./tb_interface.sv
+Compiling source file ./tb_interface.sv
+Presto compilation completed successfully.
+1
+elaborate factorial
+Loading db file '/synopsys/2010fall/syn/libraries/syn/gtech.db'
+Loading db file '/synopsys/2010fall/syn/libraries/syn/standard.sldb'
+  Loading link library 'ts90ngksdsc_tt'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'factorial'.
+Information: Building the design 'engine_pgm'. (HDL-193)
+
+Statistics for case statements in always block at line 14 in file
+        './engine_pgm.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            17            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+        in routine engine_pgm line 8 in file
+                './engine_pgm.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      state_reg      | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'engine'. (HDL-193)
+
+Inferred memory devices in process
+        in routine engine line 8 in file
+                './engine.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      term_reg       | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine engine line 18 in file
+                './engine.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     product_reg     | Flip-flop |  41   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+1
+# Constrain and compile:
+create_clock  -p 1 tif.clk
+1
+compile_ultra
+Analyzing: "/home/sa62076/virage/liberty/2001.08/ts90ngksdsc_tt.db"
+Library analysis succeeded.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library       |      Version       | Available |
+============================================================================
+| Basic DW Building Blocks                | D-2010.03-DWBB_1007 |    *     |
+| Licensed DW Building Blocks             | D-2010.03-DWBB_1007 |    *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 2 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Loaded alib file './alib-52/ts90ngksdsc_tt.db.alib'
+Information: Ungrouping hierarchy engine_pgm0 before Pass 1 (OPT-776)
+Information: Ungrouping 1 of 3 hierarchies before Pass 1 (OPT-775)
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'engine'
+Information: Added key list 'DesignWare' to design 'engine'. (DDB-72)
+ Implement Synthetic for 'engine'.
+  Processing 'factorial'
+Information: The register 'engine_pgm0/state_reg[3]' is a constant and will be removed. (OPT-1206)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The register 'engine_pgm0/state_reg[2]' is a constant and will be removed. (OPT-1206)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: Ungrouping hierarchy engine0 'engine' #insts = 109. (OPT-777)
+Information: Added key list 'DesignWare' to design 'factorial'. (DDB-72)
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:08   11236.9      0.10       2.5      19.4                          
+    0:00:08   11236.9      0.10       2.5      19.4                          
+    0:00:08   11236.9      0.10       2.5      19.4                          
+    0:00:08   11236.9      0.10       2.5      19.4                          
+  Re-synthesis Optimization (Phase 1)
+  Re-synthesis Optimization (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+  Mapping 'factorial_DW_mult_uns_3'
+    0:00:11    4996.3      0.10       2.7      20.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:11    4996.3      0.10       2.7      20.0                          
+    0:00:12    5287.3      0.04       0.8      35.0                          
+    0:00:12    5296.1      0.04       0.7      36.0                          
+    0:00:13    5371.3      0.03       0.7      36.0                          
+    0:00:13    5371.3      0.03       0.7      36.0                          
+    0:00:13    5406.5      0.03       0.6      36.0                          
+    0:00:13    5406.5      0.03       0.6      36.0                          
+    0:00:14    5403.3      0.03       0.5      36.0                          
+    0:00:14    5403.3      0.03       0.5      36.0                          
+    0:00:17    5719.4      0.00       0.0      31.0                          
+    0:00:17    5719.4      0.00       0.0      31.0                          
+    0:00:18    5721.3      0.00       0.0      31.0                          
+
+  Beginning Sequential Optimization
+  ---------------------------------
+    0:00:18    5721.3      0.00       0.0      31.0                          
+    0:00:18    5710.7      0.01       0.1      31.0                          
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:18    5710.7      0.01       0.1      31.0                          
+    0:00:19    5734.5      0.00       0.0      32.0                          
+    0:00:19    5734.5      0.00       0.0      32.0                          
+    0:00:19    5734.5      0.00       0.0      32.0                          
+
+  Beginning Sequential Optimization
+  ---------------------------------
+    0:00:19    5734.5      0.00       0.0      32.0                          
+    0:00:19    5734.5      0.00       0.0      32.0                          
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:19    5734.5      0.00       0.0      32.0                          
+    0:00:19    5734.5      0.00       0.0      32.0                          
+    0:00:19    5734.5      0.00       0.0      32.0                          
+    0:00:19    5734.5      0.00       0.0      32.0                          
+
+  Beginning Sequential Optimization
+  ---------------------------------
+    0:00:19    5734.5      0.00       0.0      32.0                          
+    0:00:19    5734.5      0.00       0.0      32.0                          
+
+
+  Beginning Design Rule Fixing  (max_fanout)
+  ----------------------------
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:19    5734.5      0.00       0.0      32.0                          
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+    0:00:20    5717.6      0.02       0.5       6.0                          
+    0:00:20    5523.1      0.00       0.0       6.0                          
+    0:00:20    5523.1      0.00       0.0       6.0                          
+    0:00:22    5536.3      0.00       0.0       6.0                          
+    0:00:22    5536.3      0.00       0.0       6.0                          
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:22    5536.3      0.00       0.0       6.0                          
+    0:00:22    5535.0      0.00       0.0       6.0                          
+    0:00:22    5530.6      0.00       0.0      21.0                          
+
+
+  Beginning Area-Recovery Phase  (max_area 0)
+  -----------------------------
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:22    5530.6      0.00       0.0      21.0                          
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+    0:00:23    5161.2      0.00       0.0       0.0                          
+Loading db file '/home/sa62076/virage/liberty/2001.08/ts90ngksdsc_tt.db'
+
+  Optimization Complete
+  ---------------------
+1
+check_design
+1
+# Report results:
+report_qor
+Information: Updating graph... (UID-83)
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : qor
+Design : factorial
+Version: D-2010.03-SP3
+Date   : Tue Jun 18 17:55:03 2013
+****************************************
+
+
+  Timing Path Group 'tif.clk'
+  -----------------------------------
+  Levels of Logic:              13.00
+  Critical Path Length:          0.95
+  Critical Path Slack:           0.00
+  Critical Path Clk Period:      1.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          0
+  Hierarchical Port Count:          0
+  Leaf Cell Count:                880
+  Buf/Inv Cell Count:             152
+  CT Buf/Inv Cell Count:            0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:     4556.607964
+  Noncombinational Area:   604.620787
+  Net Area:                  0.000000
+  -----------------------------------
+  Cell Area:              5161.228750
+  Design Area:            5161.228750
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:           928
+  Nets With Violations:             0
+  -----------------------------------
+
+
+  Hostname: vlsi01.ucsc-extension.edu
+
+  Compile CPU Statistics
+  -----------------------------------
+  Resource Sharing:              0.33
+  Logic Optimization:            4.61
+  Mapping Optimization:         15.35
+  -----------------------------------
+  Overall Compile Time:         23.36
+
+1
+report_timing
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : factorial
+Version: D-2010.03-SP3
+Date   : Tue Jun 18 17:55:03 2013
+****************************************
+
+Operating Conditions: NOM_TIMING   Library: ts90ngksdsc_tt
+Wire Load Model Mode: enclosed
+
+  Startpoint: engine0/term_reg[1]
+              (rising edge-triggered flip-flop clocked by tif.clk)
+  Endpoint: engine0/product_reg[40]
+            (rising edge-triggered flip-flop clocked by tif.clk)
+  Path Group: tif.clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  factorial          B0.1X0.1              ts90ngksdsc_tt
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock tif.clk (rise edge)                               0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  engine0/term_reg[1]/CK (SDN_FDP_4)                      0.00       0.00 r
+  engine0/term_reg[1]/Q (SDN_FDP_4)                       0.15       0.15 f
+  U151/X (SDN_EO2_2)                                      0.11       0.26 r
+  U149/X (SDN_ND2_4)                                      0.04       0.30 f
+  engine0/mult_x_18_1/U661/X (SDN_OAI22_1)                0.06       0.36 r
+  U446/S (SDN_ADDF_P1_1)                                  0.17       0.54 f
+  U49/X (SDN_NR2_1)                                       0.08       0.62 r
+  U517/X (SDN_NR2_1)                                      0.04       0.66 f
+  U595/X (SDN_AOI21_2)                                    0.05       0.71 r
+  U67/X (SDN_OAI21_1)                                     0.04       0.75 f
+  U128/X (SDN_AO21B_1)                                    0.07       0.82 f
+  U389/X (SDN_AOI21_1)                                    0.05       0.87 r
+  engine0/mult_x_18_1/U23/X (SDN_EO2_1)                   0.03       0.90 f
+  U418/X (SDN_ND2_2)                                      0.03       0.93 r
+  U395/X (SDN_ND2_2)                                      0.02       0.95 f
+  engine0/product_reg[40]/D (SDN_FDPQ_1)                  0.00       0.95 f
+  data arrival time                                                  0.95
+
+  clock tif.clk (rise edge)                               1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  engine0/product_reg[40]/CK (SDN_FDPQ_1)                 0.00       1.00 r
+  library setup time                                     -0.05       0.95
+  data required time                                                 0.95
+  --------------------------------------------------------------------------
+  data required time                                                 0.95
+  data arrival time                                                 -0.95
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1
+report_reference -no
+ 
+****************************************
+Report : reference
+Design : factorial
+Version: D-2010.03-SP3
+Date   : Tue Jun 18 17:55:03 2013
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+SDN_ADDF_1         ts90ngksdsc_tt    15.052800       2    30.105600 r
+SDN_ADDF_P1_1      ts90ngksdsc_tt    20.697599      27   558.835184 r
+SDN_ADDF_P1_2      ts90ngksdsc_tt    21.952000       5   109.759998 r
+SDN_ADDH_1         ts90ngksdsc_tt     8.780800       1     8.780800 r
+SDN_AN2_1          ts90ngksdsc_tt     4.390400       3    13.171200
+SDN_AN2_4          ts90ngksdsc_tt     6.899200       1     6.899200
+SDN_AN3B_1         ts90ngksdsc_tt     5.017600       1     5.017600
+SDN_AO2BB2_1       ts90ngksdsc_tt     6.272000       2    12.544000
+SDN_AO21B_1        ts90ngksdsc_tt     5.017600       3    15.052800
+SDN_AO21_1         ts90ngksdsc_tt     5.644800       1     5.644800
+SDN_AO22_1         ts90ngksdsc_tt     6.899200       2    13.798400
+SDN_AOI21B_1       ts90ngksdsc_tt     5.644800       2    11.289600
+SDN_AOI21_1        ts90ngksdsc_tt     4.390400      31   136.102398
+SDN_AOI21_2        ts90ngksdsc_tt     7.526400       8    60.211201
+SDN_AOI21_4        ts90ngksdsc_tt    12.544000       5    62.719998
+SDN_AOI22_1        ts90ngksdsc_tt     5.017600       2    10.035200
+SDN_AOI31_1        ts90ngksdsc_tt     5.017600       1     5.017600
+SDN_AOI32_1        ts90ngksdsc_tt     6.272000       1     6.272000
+SDN_AOI211_1       ts90ngksdsc_tt     5.017600       2    10.035200
+SDN_BUF_1          ts90ngksdsc_tt     3.763200       7    26.342400
+SDN_BUF_2          ts90ngksdsc_tt     4.390400       8    35.123199
+SDN_BUF_3          ts90ngksdsc_tt     5.644800       2    11.289600
+SDN_BUF_4          ts90ngksdsc_tt     6.272000       3    18.816000
+SDN_BUF_12         ts90ngksdsc_tt    13.798400       1    13.798400
+SDN_EN2_1          ts90ngksdsc_tt     6.899200      89   614.028797
+SDN_EO2_1          ts90ngksdsc_tt     6.899200      30   206.975999
+SDN_EO2_2          ts90ngksdsc_tt     8.780800       1     8.780800
+SDN_EO3_1          ts90ngksdsc_tt    11.289600       1    11.289600
+SDN_FDPQ_1         ts90ngksdsc_tt    12.544000      41   514.303987 n
+SDN_FDPQ_2         ts90ngksdsc_tt    13.798400       1    13.798400 n
+SDN_FDP_1          ts90ngksdsc_tt    13.798400       3    41.395200 n
+SDN_FDP_2          ts90ngksdsc_tt    15.052800       1    15.052800 n
+SDN_FDP_4          ts90ngksdsc_tt    20.070400       1    20.070400 n
+SDN_INV_0P5        ts90ngksdsc_tt     2.508800      17    42.649601
+SDN_INV_1          ts90ngksdsc_tt     2.508800     100   250.880003
+SDN_INV_2          ts90ngksdsc_tt     3.136000       6    18.816000
+SDN_INV_3          ts90ngksdsc_tt     4.390400       1     4.390400
+SDN_INV_4          ts90ngksdsc_tt     5.017600       1     5.017600
+SDN_INV_8          ts90ngksdsc_tt     8.153600       4    32.614399
+SDN_INV_S_1        ts90ngksdsc_tt     3.136000       1     3.136000
+SDN_INV_S_2        ts90ngksdsc_tt     5.017600       1     5.017600
+SDN_MAJ3_1         ts90ngksdsc_tt     6.899200       1     6.899200
+SDN_ND2B_1         ts90ngksdsc_tt     4.390400      16    70.246399
+SDN_ND2_1          ts90ngksdsc_tt     3.136000     115   360.639991
+SDN_ND2_2          ts90ngksdsc_tt     5.017600      34   170.598402
+SDN_ND2_4          ts90ngksdsc_tt     8.780800       5    43.903999
+SDN_ND3B_1         ts90ngksdsc_tt     5.644800       1     5.644800
+SDN_NR2B_1         ts90ngksdsc_tt     4.390400       7    30.732800
+SDN_NR2_1          ts90ngksdsc_tt     3.136000      60   188.159995
+SDN_NR2_2          ts90ngksdsc_tt     5.017600      35   175.616002
+SDN_NR2_4          ts90ngksdsc_tt     8.780800      12   105.369598
+SDN_NR2_6          ts90ngksdsc_tt    11.916800       1    11.916800
+SDN_NR2_8          ts90ngksdsc_tt    15.680000       1    15.680000
+SDN_OA21_1         ts90ngksdsc_tt     5.644800       1     5.644800
+SDN_OA21_2         ts90ngksdsc_tt     6.899200       1     6.899200
+SDN_OAI21B_1       ts90ngksdsc_tt     5.644800       2    11.289600
+SDN_OAI21_1        ts90ngksdsc_tt     4.390400      44   193.177597
+SDN_OAI21_2        ts90ngksdsc_tt     7.526400      16   120.422401
+SDN_OAI21_4        ts90ngksdsc_tt    12.544000       9   112.895997
+SDN_OAI22_1        ts90ngksdsc_tt     5.017600      72   361.267204
+SDN_OAI22_2        ts90ngksdsc_tt     9.408000       8    75.264000
+SDN_OAI31_1        ts90ngksdsc_tt     5.017600       2    10.035200
+SDN_OAI32_1        ts90ngksdsc_tt     6.272000       1     6.272000
+SDN_OAI211_1       ts90ngksdsc_tt     5.017600       4    20.070400
+SDN_OAI311_1       ts90ngksdsc_tt     5.644800       4    22.579201
+SDN_OR2_1          ts90ngksdsc_tt     4.390400       8    35.123199
+-----------------------------------------------------------------------------
+Total 66 references                                  5161.228750
+1
+report_resources
+ 
+****************************************
+Report : resources
+Design : factorial
+Version: D-2010.03-SP3
+Date   : Tue Jun 18 17:55:03 2013
+****************************************
+
+
+Resource Report for Ungrouped Hierarchy engine0 in file ./engine.sv
+=============================================================================
+| Cell           | Module         | Parameters | Contained Operations       |
+=============================================================================
+| sub_x_8_1      | DW01_dec       | width=4    | sub_15                     |
+| mult_x_18_1    | DW_mult_uns    | a_width=41 | mult_23                    |
+|                |                | b_width=4  |                            |
+=============================================================================
+
+
+Implementation Report
+===============================================================================
+|                    |                  | Current            | Set            |
+| Cell               | Module           | Implementation     | Implementation |
+===============================================================================
+| sub_x_8_1          | DW01_dec         | apparch (area)     |                |
+| mult_x_18_1        | DW_mult_uns      | pparch (area,speed)                 |
+===============================================================================
+
+
+No multiplexors to report
+1
+quit
+
+Thank you...
+

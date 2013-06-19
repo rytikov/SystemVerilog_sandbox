@@ -1,0 +1,63 @@
+Command: vcs -sverilog -debug_all -R -l simulation.log package.sv engine_pgm.sv engine.sv \
+engine_tb.sv factorial.sv tb_interface.sv +define+SIMULATION +vcs+vcdpluson
+                         Chronologic VCS (TM)
+          Version F-2011.12-SP1 -- Tue Jun 18 16:02:05 2013
+               Copyright (c) 1991-2012 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+Parsing design file 'package.sv'
+Parsing design file 'engine_pgm.sv'
+Parsing design file 'engine.sv'
+Parsing design file 'engine_tb.sv'
+Parsing design file 'factorial.sv'
+Parsing design file 'tb_interface.sv'
+Top Level Modules:
+       top
+No TimeScale specified
+Notice: Ports coerced to inout, use -notice for details
+Starting vcs inline pass...
+4 modules and 0 UDP read.
+recompiling package int_types
+recompiling module factorial_tb
+recompiling module top
+All of 5 modules done
+make[1]: Entering directory `/home/sa62076/work/SV4D/csrc'
+if [ -x ../simv ]; then chmod -x ../simv; fi
+g++  -o ../simv -melf_i386 -m32    -Wl,-whole-archive    -Wl,-no-whole-archive  _vcsobj_1_1.o \
+5NrI_d.o 5NrIB_d.o SIM_l.o     rmapats_mop.o rmapats.o      /synopsys/current/vcs-mx/linux/lib/libvirsim.so \
+/synopsys/current/vcs-mx/linux/lib/librterrorinf.so /synopsys/current/vcs-mx/linux/lib/libsnpsmalloc.so \
+/synopsys/current/vcs-mx/linux/lib/libvcsnew.so /synopsys/current/vcs-mx/linux/lib/libuclinative.so \
+/synopsys/current/vcs-mx/linux/lib/vcs_save_restore_new.o /synopsys/current/vcs-mx/linux/lib/ctype-stubs_32.a \
+-ldl -lm  -lc -lpthread -ldl 
+../simv up to date
+make[1]: Leaving directory `/home/sa62076/work/SV4D/csrc'
+Command: ./simv -a simulation.log +define+SIMULATION
+Chronologic VCS simulator copyright 1991-2012
+Contains Synopsys proprietary information.
+Compiler version F-2011.12-SP1; Runtime version F-2011.12-SP1;  Jun 18 16:02 2013
+VCD+ Writer F-2011.12-SP1 Copyright (c) 1991-2012 by Synopsys Inc.
+ 9 -        362880
+12 -     479001600
+13 -    6227020800
+ 3 -             6
+11 -      39916800
+ 4 -            24
+10 -       3628800
+ 7 -          5040
+14 -   87178291200
+ 5 -           120
+15 - 1307674368000
+ 6 -           720
+ 8 -         40320
+ 2 -             2
+$finish called from file "engine_tb.sv", line 87.
+$finish at simulation time                 1915
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1915
+CPU Time:      0.300 seconds;       Data structure size:   0.0Mb
+Tue Jun 18 16:02:07 2013
+CPU time: .171 seconds to compile + .059 seconds to elab + .104 seconds to link + .349 seconds in simulation
