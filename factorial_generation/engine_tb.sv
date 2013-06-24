@@ -1,3 +1,7 @@
+// It's not like we really need to randomize this test.
+// We obviously can loop through the whole input space (values from 2 to 15).
+// It's mostly an example how to randomize stimulus and
+// makesure we cover all interesting values using coverage groups.
 class Operand;
    randc int_types::INT04_t value;
    constraint allowed_range {value inside {[2:15]};}
